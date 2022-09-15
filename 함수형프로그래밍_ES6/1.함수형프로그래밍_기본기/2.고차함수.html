@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+  <script>
+    const apply1 = f => f(1);
+    const add2 = a => a+2;
+    console.log(apply1(add2));
+  </script>
+
+  <script>
+    const addMaker = a => b => a+b;
+    const add10 = addMaker(10);
+    console.log(add10(5));
+    console.log(add10(10));
+  </script>
 </body>
 </html>
