@@ -6,6 +6,11 @@
 구글에 h1 html element mdn  <- 이런 형식으로 검색
 
 
+## 날씨 API
+
+[API 사이트](https://openweathermap.org/api)
+
+
 ## webpack
 
 
