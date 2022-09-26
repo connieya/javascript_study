@@ -5,15 +5,26 @@ const ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 800;
 
-ctx.fillRect(210, 200, 15, 100);
-ctx.fillRect(350, 200, 15, 100);
-ctx.fillRect(260, 200, 60, 200);
+ctx.lineWidth = 2;
+let isPainting = false;
 
-ctx.arc(285, 155, 40, 0, 2 * Math.PI);
-ctx.fill();
+canvas.addEventListener("mousemove", (event) => {
+  if (isPainting) {
+    ctx.lineTo(event.offsetX, event.offsetY);
+    ctx.stroke();
+    return;
+  }
+  ctx.moveTo(event.offsetX, event.offsetY);
+});
 
-ctx.beginPath();
-ctx.fillStyle = "white";
-ctx.arc(275, 155, 5, 1 * Math.PI, 2 * Math.PI);
-ctx.arc(295, 155, 5, 1 * Math.PI, 2 * Math.PI);
-ctx.fill();
+canvas.addEventListener("mousedown", () => {
+  isPainting = true;
+});
+
+canvas.addEventListener("mouseup", () => {
+  isPainting = false;
+});
+
+canvas.addEventListener("mouseleave", () => {
+  isPainting = false;
+});
