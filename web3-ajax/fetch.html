@@ -1,12 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      table {
+        border-spacing: 0;
+      }
+
+      table tr th {
+        border-bottom: 2px solid black;
+        padding: 5px;
+      }
+
+      table tr td {
+        border-bottom: 1px solid black;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
-    <input type="button" value="fetch" onclick="" />
+    <input type="text" id="user_id" />
+    <button type="button" onclick="loadArticles()">게시글 읽어오기</button>
+
+    <table id="list" width="100%">
+      <thead>
+        <tr>
+          <th>타이틀</th>
+          <th>댓글 수</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      function loadComments(article) {
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (this.readyState === this.DONE) {
+            const response = JSON.parse(this.responseText);
+
+            const table = document.getElementById("list");
+            const tr = document.createElement("tr");
+            const titleTd = document.createElement("td");
+            const commentCountTd = document.createElement("td");
+
+            titleTd.innerText = article.title;
+            commentCountTd.innerText = response.length;
+            commentCountTd.style.textAlign = "center";
+
+            tr.appendChild(titleTd);
+            tr.appendChild(commentCountTd);
+            list.appendChild(tr);
+          }
+        };
+
+        xhr.open(
+          "get",
+          "https://jsonplaceholder.typicode.com/comments?postId=" + article.id,
+          true
+        );
+        xhr.send();
+      }
+
+      function loadArticles() {
+        console.log("click");
+        const userId = document.getElementById("user_id").value;
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+          .then((res) => res.json())
+          .then((datas) => {
+            for (data of datas) {
+              loadComments(data);
+            }
+          });
+      }
+    </script>
   </body>
 </html>
