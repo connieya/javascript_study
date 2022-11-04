@@ -9,8 +9,28 @@
   </head>
   <body>
     <form id="login-form">
-      <input type="text" placeholder="닉네임을 입력하세요" />
+      <input
+        type="text"
+        placeholder="닉네임을 입력하세요"
+        required
+        maxlength="10"
+      />
+      <!-- <button type="submit">✅</button> -->
     </form>
+    <div class="hidden" id="main-form">
+      <h2 id="welcome"></h2>
+      <form id="todo-form">
+        <input
+          type="text"
+          placeholder="할 일을 입력하세요"
+          required
+          maxlength="10"
+        />
+      </form>
+      <button id="logout">로그아웃</button>
+    </div>
     <script src="./index.js"></script>
+    <script src="./login.js"></script>
+    <script src="./logout.js"></script>
   </body>
 </html>
