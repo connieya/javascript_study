@@ -1,6 +1,5 @@
 const loginForm = document.querySelector("#login-form");
 const nickName = document.querySelector("#login-form input");
-const todoForm = document.querySelector("#todo-form");
 const mainForm = document.querySelector("#main-form");
 const greeting = document.querySelector("#welcome");
 

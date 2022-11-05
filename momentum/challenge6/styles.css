@@ -1,35 +1,50 @@
+#container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #clock {
   color: whitesmoke;
   text-align: center;
+  margin-bottom: 10px;
 }
 
-#login-form {
+/* #login-form {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 .hidden {
   display: none;
 }
 
 #welcome {
+  color: rgb(250, 248, 227);
   color: white;
-  text-align: center;
+  /* text-align: center; */
 }
 
-#main-form {
+/* #main-form {
   height: 100vh;
   width: 100%;
-}
+} */
 
-#todo-form {
+/* #todo-form {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+#todo-list {
+  list-style: none;
 }
 
 body {
