@@ -2,7 +2,8 @@ const loginForm = document.querySelector("#login-form");
 const nickName = document.querySelector("#login-form input");
 const mainForm = document.querySelector("#main-form");
 const greeting = document.querySelector("#welcome");
-
+const userInfo = document.querySelector("#user-info");
+const container = document.querySelector("#container");
 const HIDDEN_CLASSNAME = "hidden";
 const NICKNAME_KEY = "nickname";
 
@@ -16,6 +17,7 @@ loginForm.addEventListener("submit", (event) => {
 const paintWelcomPate = (name) => {
   loginForm.style.display = "none";
   mainForm.classList.remove(HIDDEN_CLASSNAME);
+  userInfo.classList.remove(HIDDEN_CLASSNAME);
   greeting.innerText = `${name}님 반가워요!~`;
 };
 

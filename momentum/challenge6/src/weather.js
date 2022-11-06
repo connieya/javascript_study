@@ -10,8 +10,6 @@ function onGeoOk(position) {
   fetch(URL)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      console.log(city.style);
       city.innerText = data.name;
       weather.innerText = `${data.weather[0].description} / ${data.main.temp} `;
     });
